@@ -386,7 +386,10 @@
       </div>
     </main>
     <footer class="pt-4 my-md-5 pt-md-5 border-top">
-      <img class="mb-2" src="images/logo.png" alt="" width="168" height="24">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md">
+            <img class="mb-2" src="images/logo.png" alt="" width="168" height="24">
 <ul class="list-unstyled list-inline my-2">
   <li class="list-inline-item"><a href=""><span class="fa-stack"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i></span></a></li>
   <li class="list-inline-item"><a href=""><span class="fa-stack"><i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></span></a></li>
@@ -424,10 +427,33 @@
     <li><a class="text-muted list-group-item" href="#">プライバシーポリシー</a></li>
   </ul>
 </div>
+          </div>
+        </div>
+      </div>
     </footer>
     </div>
+    <button type="button" class="btn btn-primary" id="backbtn">トップに戻る <span class="badge badge-light"><i class="fa fa-arrow-up"></i></span></button>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/holder.min.js"></script>
+  <script>
+  $(function() {
+    var topBtn = $('#backbtn');
+    topBtn.hide();
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 500) {
+        topBtn.fadeIn();
+      } else {
+        topBtn.fadeOut();
+      }
+    });
+    topBtn.click(function () {
+      $('body,html').animate({
+        scrollTop: 0
+      }, 500);
+      return false;
+    });
+  });
+</script>
 </body>
 </html>
